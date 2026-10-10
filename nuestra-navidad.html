@@ -248,7 +248,9 @@ vivirán siempre en nuestro corazón..</p>
         showCover: true, usePortrait: true, drawShadow: true,
         
 maxShadowOpacity: 0.7,
-flippingTime: reducedMotion ? 180 : 1200,
+
+flippingTime: reducedMotion ? 180 : (window.matchMedia("(max-width: 680px)").matches ? 3000 : 2000),
+
 
         autoSize: true, mobileScrollSupport: true
       });
