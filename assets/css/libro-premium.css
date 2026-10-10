@@ -1,0 +1,1300 @@
+
+/* =========================================
+   BABYKIDS STUDIO
+   ACABADO PREMIUM DEL ALBUM
+========================================= */
+
+/* Fondo elegante del escenario */
+
+body {
+    background:
+        radial-gradient(
+            ellipse at center,
+            #70454c 0%,
+            #382029 65%,
+            #1c1017 100%
+        );
+}
+
+/* Iluminacion debajo del libro */
+
+.stage::before {
+    content: "";
+    position: absolute;
+    bottom: 3%;
+    left: 15%;
+    width: 70%;
+    height: 45px;
+
+    background: rgba(0, 0, 0, 0.45);
+    filter: blur(25px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Papel con iluminacion natural */
+
+.page:not(.cover):not(.back-cover) {
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            #fffdf8 0%,
+            #faf2e6 65%,
+            #eedfc9 100%
+        );
+
+    border: 1px solid #dac29d;
+
+    box-shadow:
+        inset 18px 0 24px -18px
+            rgba(75, 43, 28, 0.35),
+        inset -12px 0 20px -16px
+            rgba(75, 43, 28, 0.24);
+}
+
+/* Fotografias con marco editorial */
+
+.page:not(.cover):not(.back-cover)
+.photo-frame {
+    background: #ffffff;
+    padding: 9px;
+
+    border: 1px solid #dac6a7;
+
+    box-shadow:
+        0 8px 22px rgba(57, 35, 30, 0.17),
+        0 1px 3px rgba(57, 35, 30, 0.12);
+}
+
+/* Evitar que el navegador arrastre
+   la imagen en vez de pasar la hoja */
+
+.page img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* Titulos refinados */
+
+.page h2 {
+    letter-spacing: 0.015em;
+    text-wrap: balance;
+}
+
+/* Detalles de las dedicatorias */
+
+.page .line {
+    color: #785957;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* Numeracion discreta */
+
+.page .folio {
+    color: #a88a63;
+    letter-spacing: 0.22em;
+}
+
+/* Botones elegantes */
+
+.controls button {
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.controls button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px
+        rgba(0, 0, 0, 0.25);
+}
+
+/* Ajustes para celulares */
+
+@media (max-width: 680px) {
+    .page:not(.cover):not(.back-cover)
+    .photo-frame {
+        padding: 5px;
+    }
+
+    .page .line {
+        font-size: 12px;
+    }
+}
+
+/* ======================================
+   BABYKIDS - FOTOGRAFIAS PREMIUM
+====================================== */
+
+/* Aprovechar mejor la pantalla */
+
+.stage {
+    height: min(76vh, 730px);
+    min-height: 420px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+/* Mas espacio para las fotografias */
+
+.page:not(.cover):not(.back-cover) .page-inner {
+    padding: clamp(10px, 1.5vw, 18px);
+    gap: clamp(5px, 0.7vw, 9px);
+}
+
+/* Titulos elegantes y proporcionados */
+
+.page:not(.cover):not(.back-cover) h2 {
+    font-size: clamp(21px, 2.3vw, 30px);
+    line-height: 1.12;
+}
+
+/* Marcos fotograficos */
+
+.page .photo-frame {
+    padding: 5px;
+}
+
+/* Conservar las fotos completas */
+
+.page .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Mantener buena vista en celulares */
+
+@media (max-width: 680px) {
+    .stage {
+        height: min(65vh, 610px);
+        min-height: 340px;
+    }
+}
+
+/* ======================================
+   BABYKIDS - FOTOS SIN ESPACIOS BLANCOS
+====================================== */
+
+/* El marco se adapta a la fotografia */
+
+.page:not(.cover):not(.back-cover):not(.dedication)
+.photo-frame {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    display: block;
+    padding: 5px;
+    background: #ffffff;
+    border: 1px solid #d4b98d;
+}
+
+/* Imagen completa sin bordes vacios */
+
+.page:not(.cover):not(.back-cover):not(.dedication)
+.photo-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    object-fit: contain;
+}
+
+/* Distribucion equilibrada */
+
+.page:not(.cover):not(.back-cover):not(.dedication)
+.page-inner {
+    justify-content: center;
+    gap: 12px;
+}
+
+/* ======================================
+   BABYKIDS STUDIO
+   AJUSTE PROFESIONAL DEL LIBRO
+====================================== */
+
+/* Diseño equilibrado de las páginas */
+
+.page:not(.cover):not(.back-cover):not(.dedication)
+.page-inner {
+    padding: 10px 13px;
+    gap: 8px;
+    justify-content: center;
+}
+
+/* Fotografías y marcos elegantes */
+
+.page:not(.cover):not(.back-cover):not(.dedication)
+.photo-frame {
+    width: 100%;
+    padding: 4px;
+    border: 1px solid #d2b98d;
+    box-shadow:
+        0 8px 20px rgba(52, 30, 25, 0.18),
+        0 2px 4px rgba(52, 30, 25, 0.10);
+}
+
+/* Mantener fotografías completas */
+
+.page:not(.cover):not(.back-cover):not(.dedication)
+.photo-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Mejorar proporciones en computadora */
+
+@media (min-width: 681px) {
+
+    .shell {
+        padding: 8px 14px 14px;
+    }
+
+    .heading {
+        margin-bottom: 4px;
+    }
+
+    .heading .eyebrow {
+        margin-bottom: 2px;
+    }
+
+    .heading h1 {
+        font-size: clamp(25px, 2.9vw, 34px);
+        line-height: 1.05;
+    }
+
+    .heading .subhead {
+        margin-top: 4px;
+    }
+
+    .stage {
+        height: clamp(
+            355px,
+            calc(100dvh - 174px),
+            665px
+        );
+
+        min-height: 0;
+        margin: 8px auto 6px;
+    }
+
+    .controls {
+        margin-top: 0;
+        gap: 12px;
+    }
+
+    .hint {
+        margin-top: 6px;
+    }
+}
+
+/* ======================================
+   BABYKIDS STUDIO
+   PORTADA PREMIUM - EFECTO CUERO
+====================================== */
+
+/* Cubierta con textura sutil */
+
+.cover,
+.back-cover {
+    background:
+        repeating-linear-gradient(
+            110deg,
+            rgba(255,255,255,0.025) 0px,
+            transparent 1px,
+            rgba(0,0,0,0.025) 3px,
+            transparent 5px
+        ),
+        linear-gradient(
+            145deg,
+            #84394e 0%,
+            #5a1c32 45%,
+            #310d20 100%
+        );
+
+    box-shadow:
+        inset 12px 0 22px rgba(0,0,0,0.30),
+        inset -5px 0 12px rgba(0,0,0,0.17),
+        inset 0 0 0 11px #631e33,
+        inset 0 0 0 12px #dfc184;
+}
+
+/* Decoracion interior dorada */
+
+.cover .page-inner,
+.back-cover .page-inner {
+    position: relative;
+}
+
+/* Marco fino */
+
+.cover .page-inner::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px solid rgba(236,204,140,0.8);
+    border-radius: 2px 7px 7px 2px;
+    pointer-events: none;
+}
+
+/* Sombra del lomo */
+
+.cover .page-inner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 22px;
+
+    background: linear-gradient(
+        to right,
+        rgba(20,5,12,0.45),
+        rgba(255,220,160,0.10) 55%,
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+/* Nombre de la marca */
+
+.cover .brand {
+    color: #f4d99d;
+    letter-spacing: 0.28em;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Titulo con relieve dorado */
+
+.cover h2 {
+    color: #f9dfa6;
+
+    text-shadow:
+        0 1px 0 #fff0c9,
+        0 3px 2px rgba(34,5,15,0.50),
+        0 7px 12px rgba(0,0,0,0.25);
+}
+
+/* Marco fotografico de la portada */
+
+.cover .photo-frame {
+    flex: 0 0 auto;
+    width: 88%;
+    height: auto;
+    max-height: none;
+    padding: 6px;
+
+    background: #fff8eb;
+    border: 2px solid #d9b777;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.35),
+        0 0 0 4px rgba(255,220,150,0.06);
+}
+
+/* Fotografia completa */
+
+.cover .photo-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 160px;
+    object-fit: contain;
+}
+
+/* Detalles decorativos */
+
+.cover .ornament {
+    color: #e9c27b;
+    font-size: 16px;
+    letter-spacing: 0.5em;
+    text-shadow: 0 0 8px rgba(240,200,120,0.3);
+}
+
+/* =====================================
+   BABYKIDS - PROFUNDIDAD DEL LIBRO
+===================================== */
+
+/* Sombra debajo del album */
+
+.stage {
+    isolation: isolate;
+}
+
+.stage::before {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: 1%;
+    height: 45px;
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0)
+    );
+
+    filter: blur(14px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.stage > #book {
+    z-index: 1;
+}
+
+/* Profundidad del papel */
+
+.page:not(.cover):not(.back-cover) {
+    border-top: 2px solid #ead9bc;
+    border-bottom: 2px solid #d6bd99;
+}
+
+/* Sombras cerca de los bordes */
+
+.page:not(.cover):not(.back-cover)
+.page-inner {
+    position: relative;
+}
+
+/* Oscurecimiento suave del papel */
+
+.page:not(.cover):not(.back-cover)
+.page-inner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(65,36,22,0.16) 0%,
+        rgba(65,36,22,0.05) 5%,
+        transparent 13%,
+        transparent 87%,
+        rgba(65,36,22,0.05) 95%,
+        rgba(65,36,22,0.16) 100%
+    );
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ======================================
+   BABYKIDS STUDIO
+   PAPEL FOTOGRAFICO PREMIUM
+====================================== */
+
+/* Grosor visual de cada hoja */
+
+#book .page:not(.cover):not(.back-cover) {
+    border-top: 2px solid #fffaf0;
+    border-bottom: 3px solid #d3bfa1;
+
+    box-shadow:
+        inset 10px 0 18px -14px rgba(65,35,25,0.4),
+        inset -10px 0 18px -14px rgba(65,35,25,0.4);
+}
+
+/* Suaves sombras hacia el lomo y bordes */
+
+#book .page:not(.cover):not(.back-cover)
+.page-inner {
+    background-image: linear-gradient(
+        to right,
+        rgba(76,45,30,0.09) 0%,
+        transparent 10%,
+        transparent 90%,
+        rgba(76,45,30,0.09) 100%
+    );
+}
+
+/* Detalles dorados de las fotografias */
+
+#book .page .photo-frame {
+    border: 1px solid #c9aa76;
+
+    box-shadow:
+        0 3px 5px rgba(70,40,30,0.12),
+        0 10px 20px rgba(70,40,30,0.15);
+}
+
+/* Numeracion delicada */
+
+#book .page .folio {
+    color: #a88654;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+}
+
+/* ======================================
+   BABYKIDS STUDIO
+   VERSION PROFESIONAL PARA CELULARES
+====================================== */
+
+@media (max-width: 680px) {
+
+    /* Distribucion general */
+
+    .shell {
+        padding: 10px 8px 18px;
+    }
+
+    .heading {
+        margin-bottom: 8px;
+    }
+
+    .heading .eyebrow {
+        font-size: 10px;
+        letter-spacing: 0.25em;
+    }
+
+    .heading h1 {
+        font-size: clamp(22px, 6vw, 28px);
+        line-height: 1.12;
+    }
+
+    .heading .subhead {
+        font-size: 11px;
+        margin-top: 4px;
+    }
+
+    /* Espacio del libro */
+
+    .stage {
+        width: 100%;
+        height: min(61vh, 540px);
+        min-height: 340px;
+        margin: 8px auto 10px;
+    }
+
+    /* Contenido de las paginas */
+
+    .page-inner {
+        padding: 10px;
+        gap: 6px;
+    }
+
+    .page h2 {
+        font-size: clamp(19px, 5.4vw, 25px);
+        line-height: 1.15;
+    }
+
+    .page .brand {
+        font-size: 9px;
+        letter-spacing: 0.15em;
+    }
+
+    .page .line {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .page .folio {
+        font-size: 9px;
+    }
+
+    /* Fotografias completas */
+
+    .page .photo-frame img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Controles adaptables */
+
+    .controls {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .controls button {
+        min-height: 40px;
+        padding: 10px 8px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    #prev {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    #counter {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 0;
+        font-size: 11px;
+    }
+
+    #next {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    #sound {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-self: center;
+    }
+
+    .hint {
+        font-size: 10px;
+        max-width: 32ch;
+        margin: 8px auto;
+    }
+}
+
+
+/* ======================================
+   BABYKIDS STUDIO
+   LOGOTIPO DORADO PREMIUM
+====================================== */
+
+.logo-contraportada-texto {
+
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+
+    margin: 8px auto 20px;
+    padding: 4px 8px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(32px, 5vw, 43px);
+    font-weight: bold;
+
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    text-align: center;
+
+    /* Efecto oro metalico */
+
+    color: #e8c582;
+
+    background: linear-gradient(
+        180deg,
+        #fff6d4 0%,
+        #f5dc9b 22%,
+        #c89443 48%,
+        #fff0bb 65%,
+        #bb8536 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    /* Relieve y brillo sutil */
+
+    filter: drop-shadow(
+        0 3px 2px rgba(25, 4, 13, 0.55)
+    );
+
+    /* Sin fondo ni recuadro */
+
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+/* ======================================
+   BABYKIDS STUDIO
+   FONDO NAVIDEÑO + NIEVE
+====================================== */
+
+/* Fondo principal más navideño */
+body {
+    background:
+        radial-gradient(circle at 20% 18%, rgba(255, 214, 130, 0.12), transparent 18%),
+        radial-gradient(circle at 82% 14%, rgba(255, 214, 130, 0.10), transparent 16%),
+        radial-gradient(circle at 50% 85%, rgba(255, 255, 255, 0.04), transparent 30%),
+        linear-gradient(180deg, #31111d 0%, #4a2230 50%, #2a0d18 100%);
+}
+
+/* El contenido del álbum debe quedar por encima */
+.shell,
+.stage,
+#book,
+.controls,
+.hint {
+    position: relative;
+    z-index: 3;
+}
+
+/* Escenario decorativo de fondo */
+.fondo-navidad {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Guirnalda superior */
+.guirnalda-superior {
+    position: absolute;
+    top: 0;
+    left: -2%;
+    width: 104%;
+    height: 120px;
+    opacity: 0.95;
+
+    background:
+        radial-gradient(circle at 5% 55%, #e5c368 0 6px, transparent 7px),
+        radial-gradient(circle at 12% 38%, #b92a34 0 10px, transparent 11px),
+        radial-gradient(circle at 20% 60%, #d6b15b 0 7px, transparent 8px),
+        radial-gradient(circle at 27% 40%, #d93f48 0 11px, transparent 12px),
+        radial-gradient(circle at 36% 58%, #e8c96e 0 7px, transparent 8px),
+        radial-gradient(circle at 44% 36%, #bf2d39 0 10px, transparent 11px),
+        radial-gradient(circle at 54% 58%, #e2bf67 0 7px, transparent 8px),
+        radial-gradient(circle at 63% 40%, #ce3741 0 11px, transparent 12px),
+        radial-gradient(circle at 72% 58%, #e4c56b 0 7px, transparent 8px),
+        radial-gradient(circle at 81% 37%, #ba2934 0 10px, transparent 11px),
+        radial-gradient(circle at 89% 57%, #dfbc61 0 7px, transparent 8px),
+        radial-gradient(circle at 96% 42%, #d43d48 0 11px, transparent 12px),
+        radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.08), transparent 60%),
+        linear-gradient(180deg, rgba(24,54,31,0.98) 0%, rgba(28,78,42,0.92) 46%, rgba(17,39,24,0) 100%);
+
+    filter: drop-shadow(0 10px 12px rgba(0,0,0,0.18));
+}
+
+/* Halos laterales decorativos */
+.halo-navidad {
+    position: absolute;
+    top: 120px;
+    bottom: 50px;
+    width: 220px;
+    opacity: 0.9;
+
+    background:
+        radial-gradient(circle at 22% 12%, rgba(236, 194, 102, 0.95) 0 7px, transparent 9px),
+        radial-gradient(circle at 56% 18%, rgba(180, 34, 45, 0.88) 0 16px, transparent 18px),
+        radial-gradient(circle at 38% 28%, rgba(239, 213, 131, 0.90) 0 9px, transparent 11px),
+        radial-gradient(circle at 70% 38%, rgba(177, 35, 48, 0.84) 0 15px, transparent 17px),
+        radial-gradient(circle at 28% 52%, rgba(236, 194, 102, 0.90) 0 11px, transparent 13px),
+        radial-gradient(circle at 58% 62%, rgba(198, 48, 59, 0.84) 0 16px, transparent 18px),
+        radial-gradient(circle at 35% 78%, rgba(241, 210, 118, 0.90) 0 8px, transparent 10px),
+        radial-gradient(circle at 78% 86%, rgba(180, 34, 45, 0.82) 0 15px, transparent 17px),
+        linear-gradient(180deg, rgba(32,68,40,0.38), rgba(32,68,40,0.10));
+
+    filter: blur(0.5px) drop-shadow(0 0 10px rgba(255,220,160,0.12));
+}
+
+.halo-izq {
+    left: 0;
+}
+
+.halo-der {
+    right: 0;
+    transform: scaleX(-1);
+}
+
+/* Capa de nieve */
+#snow-layer {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Copos */
+.snowflake {
+    position: absolute;
+    top: -10vh;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255,255,255,0.98) 0%,
+        rgba(255,255,255,0.82) 58%,
+        rgba(255,255,255,0) 72%
+    );
+
+    box-shadow: 0 0 8px rgba(255,255,255,0.35);
+
+    animation-name: caerNieve;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes caerNieve {
+    0% {
+        transform: translate3d(0, -12vh, 0);
+    }
+
+    100% {
+        transform: translate3d(var(--drift), 110vh, 0);
+    }
+}
+
+/* Menos decoración en celular */
+@media (max-width: 680px) {
+    .halo-navidad {
+        width: 120px;
+        opacity: 0.55;
+    }
+
+    .guirnalda-superior {
+        height: 85px;
+        opacity: 0.85;
+    }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .snowflake {
+        animation: none;
+        opacity: 0.25;
+    }
+}
+/* ======================================
+   BABYKIDS STUDIO
+   NAVIDAD DENTRO DEL ALBUM
+====================================== */
+
+/* Cada página interior tendrá su propio fondo */
+#book .page:not(.cover):not(.back-cover) .page-inner {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(180deg, #fffaf2 0%, #f7efe1 100%);
+}
+
+/* Mantener contenido encima de la decoración */
+#book .page:not(.cover):not(.back-cover) .page-inner > * {
+    position: relative;
+    z-index: 2;
+}
+
+#book .page:not(.cover):not(.back-cover) .page-inner > .decoracion-navidad,
+#book .page:not(.cover):not(.back-cover) .page-inner > .snow-inside {
+    z-index: 1;
+}
+
+/* Decoración navideña suave dentro de la hoja */
+.decoracion-navidad {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 14% 10%, rgba(201, 58, 68, 0.10) 0 7px, transparent 8px),
+        radial-gradient(circle at 24% 7%, rgba(223, 188, 97, 0.16) 0 4px, transparent 5px),
+        radial-gradient(circle at 78% 9%, rgba(201, 58, 68, 0.10) 0 7px, transparent 8px),
+        radial-gradient(circle at 88% 6%, rgba(223, 188, 97, 0.16) 0 4px, transparent 5px),
+        radial-gradient(circle at 12% 92%, rgba(223, 188, 97, 0.10) 0 5px, transparent 6px),
+        radial-gradient(circle at 87% 91%, rgba(201, 58, 68, 0.10) 0 6px, transparent 7px);
+}
+
+/* Guirnalda superior dentro de la página */
+.decoracion-navidad::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -3%;
+    width: 106%;
+    height: 34px;
+
+    background:
+        radial-gradient(circle at 8% 70%, rgba(196, 53, 58, 0.9) 0 4px, transparent 5px),
+        radial-gradient(circle at 16% 40%, rgba(224, 191, 103, 0.95) 0 3px, transparent 4px),
+        radial-gradient(circle at 27% 68%, rgba(196, 53, 58, 0.85) 0 4px, transparent 5px),
+        radial-gradient(circle at 39% 38%, rgba(224, 191, 103, 0.90) 0 3px, transparent 4px),
+        radial-gradient(circle at 54% 66%, rgba(196, 53, 58, 0.85) 0 4px, transparent 5px),
+        radial-gradient(circle at 66% 37%, rgba(224, 191, 103, 0.95) 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 68%, rgba(196, 53, 58, 0.85) 0 4px, transparent 5px),
+        radial-gradient(circle at 92% 42%, rgba(224, 191, 103, 0.95) 0 3px, transparent 4px),
+        linear-gradient(180deg, rgba(30, 94, 48, 0.32) 0%, rgba(30, 94, 48, 0.05) 100%);
+}
+
+/* Detalle sutil abajo */
+.decoracion-navidad::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 18px;
+
+    background: linear-gradient(
+        0deg,
+        rgba(38, 102, 56, 0.08) 0%,
+        transparent 100%
+    );
+}
+
+/* Nieve dentro del álbum */
+.snow-inside {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Copos internos */
+.flake-inside {
+    position: absolute;
+    top: -12%;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255,255,255,0.98) 0%,
+        rgba(255,255,255,0.78) 56%,
+        rgba(255,255,255,0) 72%
+    );
+
+    box-shadow: 0 0 6px rgba(255,255,255,0.28);
+
+    animation-name: nieveInterior;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes nieveInterior {
+    0% {
+        transform: translate3d(0, -10%, 0);
+    }
+
+    100% {
+        transform: translate3d(var(--drift), 112%, 0);
+    }
+}
+
+/* Para que fotos y textos sigan siendo protagonistas */
+#book .page .photo-frame,
+#book .page h2,
+#book .page p,
+#book .page .brand,
+#book .page .folio,
+#book .page .ornament {
+    position: relative;
+    z-index: 2;
+}
+
+/* Menos nieve en pantallas pequeñas */
+@media (max-width: 680px) {
+    .decoracion-navidad::before {
+        height: 24px;
+        opacity: 0.75;
+    }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .flake-inside {
+        animation: none;
+        opacity: 0.20;
+    }
+}
+/* ======================================
+   BABYKIDS STUDIO
+   FONDO NAVIDEÑO COMPLETO DENTRO DEL ÁLBUM
+   ÁRBOLES + LUCES
+====================================== */
+
+#book .page:not(.cover):not(.back-cover) .page-inner {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(255, 248, 239, 0.88),
+            rgba(255, 248, 239, 0.88)
+        ),
+        linear-gradient(180deg, #fffaf2 0%, #f3e7d7 100%);
+}
+
+/* El contenido siempre por encima del fondo */
+#book .page:not(.cover):not(.back-cover) .page-inner > * {
+    position: relative;
+    z-index: 3;
+}
+
+/* Fondo con árboles navideños suaves */
+#book .page:not(.cover):not(.back-cover) .page-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background:
+        /* troncos */
+        linear-gradient(rgba(125, 84, 52, 0.22), rgba(125, 84, 52, 0.22))
+            17% 84% / 4% 9% no-repeat,
+        linear-gradient(rgba(125, 84, 52, 0.20), rgba(125, 84, 52, 0.20))
+            83% 84% / 4% 9% no-repeat,
+
+        /* árbol izquierdo */
+        conic-gradient(
+            from 180deg at 50% 100%,
+            transparent 0 60deg,
+            rgba(34, 102, 55, 0.20) 60deg 120deg,
+            transparent 120deg 360deg
+        ) 17% 74% / 28% 18% no-repeat,
+
+        conic-gradient(
+            from 180deg at 50% 100%,
+            transparent 0 60deg,
+            rgba(34, 102, 55, 0.22) 60deg 120deg,
+            transparent 120deg 360deg
+        ) 17% 67% / 22% 15% no-repeat,
+
+        conic-gradient(
+            from 180deg at 50% 100%,
+            transparent 0 60deg,
+            rgba(34, 102, 55, 0.24) 60deg 120deg,
+            transparent 120deg 360deg
+        ) 17% 60% / 16% 12% no-repeat,
+
+        /* árbol derecho */
+        conic-gradient(
+            from 180deg at 50% 100%,
+            transparent 0 60deg,
+            rgba(34, 102, 55, 0.18) 60deg 120deg,
+            transparent 120deg 360deg
+        ) 83% 74% / 28% 18% no-repeat,
+
+        conic-gradient(
+            from 180deg at 50% 100%,
+            transparent 0 60deg,
+            rgba(34, 102, 55, 0.20) 60deg 120deg,
+            transparent 120deg 360deg
+        ) 83% 67% / 22% 15% no-repeat,
+
+        conic-gradient(
+            from 180deg at 50% 100%,
+            transparent 0 60deg,
+            rgba(34, 102, 55, 0.22) 60deg 120deg,
+            transparent 120deg 360deg
+        ) 83% 60% / 16% 12% no-repeat,
+
+        /* luces suaves alrededor */
+        radial-gradient(circle at 15% 61%, rgba(225, 192, 102, 0.16) 0 7px, transparent 8px),
+        radial-gradient(circle at 19% 67%, rgba(186, 46, 58, 0.15) 0 6px, transparent 7px),
+        radial-gradient(circle at 82% 63%, rgba(225, 192, 102, 0.14) 0 7px, transparent 8px),
+        radial-gradient(circle at 85% 69%, rgba(186, 46, 58, 0.14) 0 6px, transparent 7px),
+
+        /* ambiente general */
+        radial-gradient(circle at 18% 78%, rgba(33, 103, 53, 0.10) 0 120px, transparent 121px),
+        radial-gradient(circle at 82% 78%, rgba(33, 103, 53, 0.10) 0 120px, transparent 121px);
+}
+
+/* Guirnalda con luces arriba */
+#book .page:not(.cover):not(.back-cover) .page-inner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -2%;
+    width: 104%;
+    height: 52px;
+    z-index: 1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 6% 68%, rgba(194, 50, 58, 0.90) 0 5px, transparent 6px),
+        radial-gradient(circle at 12% 40%, rgba(226, 195, 107, 0.95) 0 4px, transparent 5px),
+        radial-gradient(circle at 20% 68%, rgba(194, 50, 58, 0.85) 0 5px, transparent 6px),
+        radial-gradient(circle at 28% 39%, rgba(226, 195, 107, 0.95) 0 4px, transparent 5px),
+        radial-gradient(circle at 37% 68%, rgba(194, 50, 58, 0.85) 0 5px, transparent 6px),
+        radial-gradient(circle at 47% 39%, rgba(226, 195, 107, 0.95) 0 4px, transparent 5px),
+        radial-gradient(circle at 58% 68%, rgba(194, 50, 58, 0.85) 0 5px, transparent 6px),
+        radial-gradient(circle at 68% 39%, rgba(226, 195, 107, 0.95) 0 4px, transparent 5px),
+        radial-gradient(circle at 79% 68%, rgba(194, 50, 58, 0.85) 0 5px, transparent 6px),
+        radial-gradient(circle at 88% 39%, rgba(226, 195, 107, 0.95) 0 4px, transparent 5px),
+
+        linear-gradient(
+            180deg,
+            rgba(31, 98, 51, 0.34) 0%,
+            rgba(31, 98, 51, 0.10) 70%,
+            transparent 100%
+        );
+}
+
+/* Dar un poco más de protagonismo a las fotos */
+#book .page .photo-frame {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(1px);
+}
+/* ======================================
+   BABYKIDS STUDIO
+   NIEVE INTERIOR + LUCES PARPADEANTES
+====================================== */
+
+/* Mantener la hoja como contenedor */
+#book .page:not(.cover):not(.back-cover) .page-inner {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Todo el contenido principal encima */
+#book .page:not(.cover):not(.back-cover) .page-inner > * {
+    position: relative;
+    z-index: 3;
+}
+
+/* Guirnalda de luces superior */
+.guirnalda-luces {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 34px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Cada bombillo */
+.guirnalda-luces .luz {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: parpadeoLuces 2.4s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(255,255,255,0.12);
+}
+
+/* Cablecito de cada luz */
+.guirnalda-luces .luz::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 1.5px;
+    height: 7px;
+    background: rgba(90, 110, 75, 0.55);
+    transform: translateX(-50%);
+}
+
+/* Colores alternados */
+.guirnalda-luces .luz:nth-child(odd) {
+    background: #c8444f;
+    box-shadow:
+        0 0 5px rgba(200, 68, 79, 0.6),
+        0 0 12px rgba(200, 68, 79, 0.35);
+}
+
+.guirnalda-luces .luz:nth-child(even) {
+    background: #dfb85e;
+    box-shadow:
+        0 0 5px rgba(223, 184, 94, 0.65),
+        0 0 12px rgba(223, 184, 94, 0.4);
+}
+
+/* Retraso distinto para que no parpadeen igual */
+.guirnalda-luces .luz:nth-child(1)  { animation-delay: 0s; }
+.guirnalda-luces .luz:nth-child(2)  { animation-delay: .3s; }
+.guirnalda-luces .luz:nth-child(3)  { animation-delay: .7s; }
+.guirnalda-luces .luz:nth-child(4)  { animation-delay: 1s; }
+.guirnalda-luces .luz:nth-child(5)  { animation-delay: .4s; }
+.guirnalda-luces .luz:nth-child(6)  { animation-delay: .9s; }
+.guirnalda-luces .luz:nth-child(7)  { animation-delay: .2s; }
+.guirnalda-luces .luz:nth-child(8)  { animation-delay: 1.1s; }
+.guirnalda-luces .luz:nth-child(9)  { animation-delay: .5s; }
+.guirnalda-luces .luz:nth-child(10) { animation-delay: .8s; }
+
+/* Animación de luces */
+@keyframes parpadeoLuces {
+    0% {
+        opacity: 0.45;
+        transform: scale(0.9);
+        filter: brightness(0.85);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+        filter: brightness(1.2);
+    }
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+        filter: brightness(0.95);
+    }
+}
+
+/* Capa de nieve */
+.nieve-interior {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Copos */
+.nieve-interior .copo {
+    position: absolute;
+    top: -12%;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255,255,255,0.98) 0%,
+        rgba(255,255,255,0.78) 58%,
+        rgba(255,255,255,0) 72%
+    );
+    box-shadow: 0 0 6px rgba(255,255,255,0.3);
+    animation-name: caerNieveInterior;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Movimiento de nieve */
+@keyframes caerNieveInterior {
+    0% {
+        transform: translate3d(0, -10%, 0);
+    }
+    100% {
+        transform: translate3d(var(--drift), 112%, 0);
+    }
+}
+
+/* Que las fotos y textos se mantengan arriba */
+#book .page .photo-frame,
+#book .page h2,
+#book .page p,
+#book .page .brand,
+#book .page .folio,
+#book .page .ornament {
+    position: relative;
+    z-index: 3;
+}
+
+/* En celular, menos nieve */
+@media (max-width: 680px) {
+    .guirnalda-luces {
+        height: 28px;
+        top: 8px;
+    }
+
+    .guirnalda-luces .luz {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .nieve-interior .copo,
+    .guirnalda-luces .luz {
+        animation: none;
+    }
+}

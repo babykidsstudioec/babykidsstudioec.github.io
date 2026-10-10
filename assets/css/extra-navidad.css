@@ -1,0 +1,33 @@
+/* BABYKIDS - FONDO NAVIDEÑO. Solo cambia el escenario, no las hojas. */
+body {
+  background-color: #29151e;
+  background-image:
+    linear-gradient(rgba(30, 12, 21, .19), rgba(30, 12, 21, .19)),
+    url("../img/fondo-navidad.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Mantiene legible el álbum sobre el fondo festivo. */
+.shell { position: relative; isolation: isolate; }
+.heading { text-shadow: 0 2px 14px rgba(14, 3, 9, .75); }
+.controls, .hint { filter: drop-shadow(0 2px 5px rgba(10, 4, 8, .38)); }
+
+/* Botón adicional: la música es independiente del sonido de hojas. */
+.controls #music {
+  background: rgba(48, 22, 31, .78);
+  border: 1px solid #d6b77d;
+  color: #ffe5b4;
+  font-weight: 600;
+}
+.controls #music:hover:not(:disabled) { background: rgba(91, 42, 58, .92); }
+.controls #music[aria-pressed="true"] {
+  background: #f0d29b;
+  color: #451c29;
+}
+@media (max-width: 680px) {
+  body { background-attachment: scroll; }
+  .controls #music { grid-column: 1 / -1; grid-row: auto; justify-self: center; }
+}

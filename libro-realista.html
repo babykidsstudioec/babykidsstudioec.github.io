@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#34161f">
+  <title>BabyKids Studio · Álbum navideño realista</title>
+  <style>
+    :root { color-scheme: dark; --vino:#431923; --oro:#e6c68c; --crema:#fff9f0; --tinta:#603040; }
+    * {box-sizing:border-box}
+    body {margin:0;min-height:100vh;color:#f8ede4;font-family:Georgia,'Times New Roman',serif;
+      background:radial-gradient(ellipse at 50% 30%,#73444b 0%,#3b202a 52%,#201018 100%)}
+    .shell {max-width:1150px;margin:0 auto;padding:18px 18px 26px}
+    .heading {text-align:center;margin-bottom:12px}
+    .eyebrow {margin:0 0 6px;color:var(--oro);font:600 11px/1.5 Arial,sans-serif;letter-spacing:.38em;text-transform:uppercase}
+    h1 {font-weight:normal;font-size:clamp(26px,3vw,38px);line-height:1.2;margin:0;color:#ffe3ae}
+    .subhead {font-size:13px;color:#dac1be;margin:8px 0 0}
+    .stage {position:relative;display:flex;align-items:center;justify-content:center;margin:16px auto 12px;
+      width:100%;height:min(70vh,710px);min-height:385px}
+    /* El contenedor ofrece espacio para el libro abierto y sus sombras */
+    #book {width:100%;height:100%;margin:auto}
+    .page {background:var(--crema);color:var(--tinta);border:1px solid #e1c99e;
+      overflow:hidden;box-shadow:inset 7px 0 13px rgba(77,36,25,.08)}
+    .page-inner {height:100%;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+      padding:clamp(12px,2vw,25px);text-align:center;gap:clamp(8px,1vw,14px)}
+    .brand {font:600 clamp(9px,1.2vw,12px)/1.5 Arial,sans-serif;letter-spacing:.24em;color:#b08b4e;text-transform:uppercase}
+    .page h2 {font-weight:normal;color:#7c263a;font-size:clamp(21px,2.65vw,34px);line-height:1.1;margin:0}
+    .page .photo-frame {width:100%;min-height:0;flex:1;display:flex;align-items:center;justify-content:center;
+      padding:7px;background:#fff;border:1px solid #d6bb8c;box-shadow:0 8px 20px rgba(69,35,27,.13)}
+    .page .photo-frame img {max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;display:block}
+    .page .line {font-style:italic;color:#8a6260;font-size:clamp(11px,1.35vw,15px);line-height:1.35;margin:0}
+    .page .folio {font:600 10px Arial,sans-serif;letter-spacing:.16em;color:#a18b77}
+    .cover, .back-cover {background:linear-gradient(133deg,#742e42,#420f21 64%,#2c0916);color:var(--oro);
+      box-shadow:inset 8px 0 16px rgba(0,0,0,.24),inset 0 0 0 12px #661d32,inset 0 0 0 13px #ceae70}
+    .cover .page-inner, .back-cover .page-inner {padding:clamp(22px,3vw,35px)}
+    .cover .brand, .back-cover .brand {color:#ebcf98}
+    .cover h2 {font-size:clamp(30px,4vw,48px);color:#ffdea2;text-shadow:0 4px 10px #1f0b14}
+    .cover p, .back-cover p {color:#f3ddcd;line-height:1.5;margin:0;font-style:italic;font-size:clamp(12px,1.5vw,16px)}
+    .cover .photo-frame {flex:0 1 auto;height:42%;max-height:270px;width:94%;background:#fffbf2;box-shadow:0 14px 28px #1c0913; padding:7px}
+    .back-cover h2 {color:#f9dfa9;font-size:clamp(28px,3.4vw,39px)}
+    .back-cover .flourish {font-size:clamp(25px,4vw,52px);color:#dfc087}
+    .dedication {background:linear-gradient(145deg,#fffcf7,#f4e7d4)}
+    .dedication h2 {font-size:clamp(29px,3.6vw,44px)}
+    .dedication .quote {font-style:italic;line-height:1.6;font-size:clamp(15px,2vw,21px);max-width:26ch}
+    .ornament {color:#b18e57;letter-spacing:.4em}
+    .controls {display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:11px;margin:6px auto 0;
+      font:500 13px Arial,sans-serif}
+    .controls button {border:1px solid #ceaf79;background:#f0d29b;color:#451c29;font-weight:700;
+      padding:12px 18px;border-radius:40px;cursor:pointer;min-height:44px}
+    .controls button:hover:not(:disabled) {background:#fff0cf;transform:translateY(-1px)}
+    .controls button:disabled {opacity:.4;cursor:default}
+    .controls .sound {background:transparent;color:#f5e6ce;border-color:#9f745d}
+    .controls .sound:hover {background:#5b3542}
+    .counter {min-width:104px;text-align:center;color:#f3ddc2}
+    button:focus-visible {outline:3px solid #fff4c3;outline-offset:4px}
+    .hint {text-align:center;font:12px/1.5 Arial,sans-serif;color:#d5bdaf;margin:12px auto 0}
+    .warning {display:none;max-width:620px;margin:13px auto;padding:12px;background:#fff0d6;
+      color:#54202d;border-radius:9px;text-align:center;font:14px/1.5 Arial,sans-serif}
+    .warning.visible {display:block}
+    @media(max-width:680px) {
+      .shell {padding:14px 8px 25px}
+      .stage {height:min(65vh,600px);min-height:340px;margin-top:12px}
+      .subhead {margin-top:6px}
+      .page-inner {padding:12px;gap:8px}
+      .page .photo-frame {padding:4px}
+      .cover .photo-frame {height:39%;padding:5px}
+      .controls {gap:7px}
+      .controls button {padding:10px 12px;font-size:12px}
+      .counter {min-width:70px;font-size:12px}
+    }
+    @media(prefers-reduced-motion:reduce) {button {transition:none}}
+  </style>
+  
+<link rel="stylesheet"
+      href="assets/css/libro-premium.css">
+      
+<!-- Fondo navideño BabyKids -->
+<link rel="stylesheet" href="assets/css/extra-navidad.css">
+
+<!-- Música instrumental navideña -->
+<script src="assets/js/musica-navidad.js" defer></script>
+
+
+</head>
+<body>
+  <div class="fondo-navidad" aria-hidden="true">
+  <div class="guirnalda-superior"></div>
+  <div class="halo-navidad halo-izq"></div>
+  <div class="halo-navidad halo-der"></div>
+</div>
+
+<div id="snow-layer" aria-hidden="true"></div>
+  <main class="shell">
+    <div class="heading">
+      <p class="eyebrow">BabyKids Studio</p>
+      <h1>Un álbum para recordar</h1>
+      <p class="subhead">Nuestra Navidad · Edición especial</p>
+    </div>
+
+    <div class="stage">
+      <div id="book" aria-label="Álbum digital de Navidad">
+        <!-- Portada dura: se abre como la cubierta de un libro -->
+        <section class="page cover" data-density="hard">
+          <div class="page-inner">
+            <div class="brand">BabyKids Studio</div>
+            <h2>Nuestra Navidad</h2>
+            <p>Momentos que se convierten en recuerdos</p>
+            <div class="photo-frame"><img src="assets/img/portada.webp" alt="Retrato familiar frente a dos árboles navideños"></div>
+            <div class="ornament">✦ ✧ ✦</div>
+          </div>
+        </section>
+        <!-- Cinco fotos, una por página -->
+        <section class="page">
+          <div class="page-inner">
+            <div class="brand">BabyKids · Recuerdos</div>
+            <h2>Juntos en Navidad</h2>
+            <div class="photo-frame"><img src="assets/img/portada.webp" alt="Retrato de cuatro personas en el escenario navideño"></div>
+            <p class="line">Los mejores momentos se viven en familia.</p>
+            <div class="folio">01 / 05</div>
+          </div>
+        </section>
+        <section class="page">
+          <div class="page-inner">
+            <div class="brand">BabyKids · Recuerdos</div>
+            <h2>Sonrisas inolvidables</h2>
+            <div class="photo-frame"><img src="assets/img/sonrisas.webp" alt="Fotografía familiar con niñas, niños y un adulto mayor"></div>
+            <p class="line">Cada sonrisa guarda una historia especial.</p>
+            <div class="folio">02 / 05</div>
+          </div>
+        </section>
+        <section class="page">
+          <div class="page-inner">
+            <div class="brand">BabyKids · Recuerdos</div>
+            <h2>Dulces momentos</h2>
+            <div class="photo-frame"><img src="assets/img/dulces.webp" alt="Dos personas disfrutando en una cocina navideña decorada"></div>
+            <p class="line">Las mejores historias se comparten.</p>
+            <div class="folio">03 / 05</div>
+          </div>
+        </section>
+        <section class="page">
+          <div class="page-inner">
+            <div class="brand">BabyKids · Recuerdos</div>
+            <h2>Abrazos que perduran</h2>
+            <div class="photo-frame"><img src="assets/img/abrazos.webp" alt="Tres personas sonrientes abrazadas en Navidad"></div>
+            <p class="line">Cerca de quienes más queremos.</p>
+            <div class="folio">04 / 05</div>
+          </div>
+        </section>
+        <section class="page">
+          <div class="page-inner">
+            <div class="brand">BabyKids · Recuerdos</div>
+            <h2>Siempre juntos</h2>
+            <div class="photo-frame"><img src="assets/img/juntos.webp" alt="Tres hombres posando frente a árboles navideños"></div>
+            <p class="line">Los vínculos que nos unen son el mejor regalo.</p>
+            <div class="folio">05 / 05</div>
+          </div>
+        </section>
+        <!-- Página adicional para que el libro cierre correctamente -->
+        <section class="page dedication">
+          <div class="page-inner">
+            <div class="brand">Nuestra Navidad</div>
+            <div class="ornament">✦ ✧ ✦</div>
+            <h2>Para siempre</h2>
+            <p class="quote">“Que cada fotografía nos recuerde lo bonito que es compartir la vida.”</p>
+            <div class="ornament">✦ ✧ ✦</div>
+            <div class="brand">BabyKids Studio</div>
+          </div>
+        </section>
+        <!-- Contraportada -->
+        <section class="page back-cover" data-density="hard">
+          <div class="page-inner">
+            <div class="brand">BabyKids Studio</div>
+            
+<div class="logo-contraportada-texto" aria-label="Logo BabyKids">BabyKids</div>
+
+            <h2>Recuerdos para siempre</h2>
+            <p>Cada sonrisa, cada abrazo y cada instante juntos
+vivirán siempre en nuestro corazón..</p>
+            <div class="ornament">✦ ✧ ✦</div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <nav class="controls" aria-label="Controles del álbum">
+      <button id="prev" type="button" disabled>← Anterior</button>
+      <span id="counter" class="counter" aria-live="polite">Portada</span>
+      <button id="next" type="button">Siguiente →</button>
+      <button id="sound" class="sound" type="button" aria-pressed="true">🔊 Sonido</button>
+    </nav>
+    <p class="hint">También puedes arrastrar una esquina de la hoja para doblarla y pasarla.</p>
+    <div id="warning" class="warning" role="alert">No se pudo cargar el motor de hojas. Comprueba tu conexión a Internet y actualiza la página (Ctrl + R).</div>
+  </main>
+  <!-- Biblioteca StPageFlip (MIT), sin instalar programas nuevos. Requiere conexión. -->
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+  <script>
+    (() => {
+      'use strict';
+      const warning = document.getElementById('warning');
+      if (!window.St || !window.St.PageFlip) {
+        warning.classList.add('visible');
+        return;
+      }
+      const next = document.getElementById('next');
+      const prev = document.getElementById('prev');
+      const counter = document.getElementById('counter');
+      const soundButton = document.getElementById('sound');
+      let soundOn = true;
+      let audioContext = null;
+      let lastSound = 0;
+      // Efecto de papel suave, creado con ruido filtrado (sin MP3 externo).
+      function paperSound() {
+        if (!soundOn) return;
+        const AudioAPI = window.AudioContext || window.webkitAudioContext;
+        if (!AudioAPI) return;
+        try {
+          if (!audioContext) audioContext = new AudioAPI();
+          const ctx = audioContext;
+          if (ctx.state === 'suspended') void ctx.resume();
+          const time = ctx.currentTime;
+          const duration = 0.62;
+          const buffer = ctx.createBuffer(1, Math.round(ctx.sampleRate * duration), ctx.sampleRate);
+          const channel = buffer.getChannelData(0);
+          for (let i = 0; i < channel.length; i++) {
+            const taper = Math.sin(Math.PI * i / channel.length) ** 0.7;
+            channel[i] = (Math.random() * 2 - 1) * taper;
+          }
+          const source = ctx.createBufferSource();
+          source.buffer = buffer;
+          const filter = ctx.createBiquadFilter();
+          filter.type = 'bandpass';
+          filter.frequency.value = 1850;
+          filter.Q.value = 0.55;
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(0.001, time);
+          gain.gain.exponentialRampToValueAtTime(0.045, time + 0.09);
+          gain.gain.exponentialRampToValueAtTime(0.017, time + 0.29);
+          gain.gain.exponentialRampToValueAtTime(0.032, time + 0.43);
+          gain.gain.exponentialRampToValueAtTime(0.001, time + duration);
+          source.connect(filter).connect(gain).connect(ctx.destination);
+          source.start(time);
+          source.stop(time + duration);
+        } catch (error) { console.warn('El sonido no está disponible', error); }
+      }
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const album = new St.PageFlip(document.getElementById('book'), {
+        width: 440, height: 600,
+        size: 'stretch', minWidth: 245, maxWidth: 510, minHeight: 335, maxHeight: 700,
+        showCover: true, usePortrait: true, drawShadow: true,
+        
+maxShadowOpacity: 0.7,
+flippingTime: reducedMotion ? 180 : 1200,
+
+        autoSize: true, mobileScrollSupport: true
+      });
+      album.loadFromHTML(document.querySelectorAll('#book > .page'));
+      const pagesCount = album.getPageCount();
+      function refreshControls() {
+        const index = album.getCurrentPageIndex();
+        counter.textContent = index === 0 ? 'Portada' : index === pagesCount - 1 ? 'Contraportada' : `Página ${index + 1} / ${pagesCount}`;
+        prev.disabled = index === 0;
+        next.disabled = index >= pagesCount - 1;
+      }
+      album.on('flip', refreshControls);
+      album.on('changeState', event => {
+        if (event.data !== 'flipping') return;
+        const now = Date.now();
+        if (now - lastSound > 500) {
+          lastSound = now;
+          paperSound();
+        }
+      });
+      album.on('changeOrientation', refreshControls);
+      next.addEventListener('click', () => album.flipNext('bottom'));
+      prev.addEventListener('click', () => album.flipPrev('bottom'));
+      soundButton.addEventListener('click', () => {
+        soundOn = !soundOn;
+        soundButton.textContent = soundOn ? '🔊 Sonido' : '🔇 Silenciado';
+        soundButton.setAttribute('aria-pressed', String(soundOn));
+      });
+      document.addEventListener('keydown', event => {
+        if (event.target.matches('input, textarea, select')) return;
+        if (event.key === 'ArrowRight') album.flipNext('bottom');
+        if (event.key === 'ArrowLeft') album.flipPrev('bottom');
+      });
+      refreshControls();
+    })();
+  </script>
+  <script src="assets/js/navidad-efectos.js"></script>
+  <script src="assets/js/nieve-interior.js"></script>
+  <script src="assets/js/efectos-interior.js"></script>
+</body>
+</html>

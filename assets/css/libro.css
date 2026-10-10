@@ -1,0 +1,570 @@
+
+/* BABYKIDS STUDIO - ALBUM PREMIUM */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at center, #704b4c, #241318);
+    min-height: 100vh;
+    color: #fff;
+}
+
+/* CONTENEDOR GENERAL */
+
+.album {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 20px;
+}
+
+/* PORTADA DEL LIBRO */
+
+.pagina {
+    width: 100%;
+    max-width: 650px;
+    min-height: 720px;
+    background: linear-gradient(
+        145deg,
+        #751f35,
+        #3b0f20
+    );
+    border: 3px solid #d7b978;
+    border-radius: 12px 22px 22px 12px;
+    box-shadow:
+        -12px 12px 0 #32101b,
+        0 25px 65px rgba(0,0,0,0.55);
+
+    padding: 28px;
+    position: relative;
+}
+
+/* MARCO DORADO INTERIOR */
+
+.portada::before {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border: 1px solid rgba(231,198,126,0.7);
+    border-radius: 5px 14px 14px 5px;
+    pointer-events: none;
+}
+
+.contenido-portada {
+    position: relative;
+    z-index: 1;
+    min-height: 660px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+/* MARCA */
+
+.marca {
+    color: #e6c989;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+/* TITULO */
+
+.portada h1 {
+    font-size: clamp(36px, 7vw, 62px);
+    color: #f3da9f;
+    font-weight: normal;
+    margin-bottom: 15px;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.3);
+}
+
+.contenido-portada > p:not(.marca) {
+    font-size: 16px;
+    color: #f5e8dc;
+    font-style: italic;
+    margin-bottom: 35px;
+}
+
+/* FOTOGRAFIA */
+
+.portada img {
+    width: 100%;
+    max-width: 430px;
+    max-height: 320px;
+    object-fit: contain;
+    border: 7px solid #f7efe4;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    margin-bottom: 40px;
+}
+
+/* BOTON */
+
+#abrirAlbum {
+    background: linear-gradient(
+        135deg,
+        #f1d69a,
+        #c8a45c
+    );
+    color: #42201e;
+    border: none;
+    border-radius: 30px;
+    padding: 16px 35px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#abrirAlbum:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* VERSION PARA CELULARES */
+
+@media (max-width: 600px) {
+    .album {
+        padding: 20px 12px;
+    }
+
+    .pagina {
+        min-height: 600px;
+        padding: 20px;
+    }
+
+    .contenido-portada {
+        min-height: 550px;
+        padding: 25px 12px;
+    }
+
+    .marca {
+        letter-spacing: 3px;
+    }
+
+    .portada img {
+        max-height: 260px;
+    }
+}
+
+/* ===================================
+   PAGINAS INTERIORES BABYKIDS
+=================================== */
+
+/* Ocultar las paginas que no se muestran */
+
+.pagina[hidden] {
+    display: none !important;
+}
+
+/* Diseño de las paginas interiores */
+
+.pagina-foto {
+    background: #fffaf2;
+    color: #542334;
+    border: 5px solid #d7b978;
+    text-align: center;
+}
+
+.foto-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 640px;
+    gap: 20px;
+}
+
+/* Marca del album */
+
+.pagina-foto .marca {
+    color: #a37a39;
+    margin-bottom: 0;
+}
+
+/* Titulos */
+
+.pagina-foto h2 {
+    font-size: clamp(26px, 5vw, 38px);
+    color: #751f35;
+    font-weight: normal;
+}
+
+/* Marco de las fotografias */
+
+.marco-foto {
+    width: 100%;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #d8c4a4;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+/* Fotografias completas sin recortes */
+
+.marco-foto img {
+    display: block;
+    width: 100%;
+    height: 390px;
+    object-fit: contain;
+    background: #f3eee7;
+}
+
+/* Dedicatoria debajo de la foto */
+
+#textoFoto {
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.6;
+    color: #765c59;
+}
+
+/* Navegacion del album */
+
+.navegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.navegacion button,
+#volverInicio {
+    background: #751f35;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 13px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navegacion button:hover,
+#volverInicio:hover {
+    background: #a04a60;
+    transform: translateY(-2px);
+}
+
+#contadorFoto {
+    color: #956f39;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* CONTRAPORTADA */
+
+.pagina-final {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contenido-final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+}
+
+.contenido-final h2 {
+    color: #f3da9f;
+    font-size: 42px;
+    font-weight: normal;
+}
+
+.contenido-final > p:not(.marca) {
+    font-size: 20px;
+    line-height: 1.7;
+    color: #f5e8dc;
+}
+
+#volverInicio {
+    background: #d7b978;
+    color: #421c29;
+}
+
+/* ADAPTACION PARA CELULARES */
+
+@media (max-width: 600px) {
+
+    .foto-contenido {
+        min-height: 550px;
+        gap: 15px;
+    }
+
+    .marco-foto img {
+        height: 290px;
+    }
+
+    .navegacion button {
+        padding: 11px 12px;
+        font-size: 12px;
+    }
+
+    #contadorFoto {
+        font-size: 12px;
+    }
+
+    .contenido-final h2 {
+        font-size: 32px;
+    }
+}
+
+/* =====================================
+   BABYKIDS - EFECTO PASAR PAGINA
+===================================== */
+
+.album {
+    perspective: 1600px;
+}
+
+.pagina-foto {
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+/* Hoja que se retira */
+
+.hoja-sale {
+    animation: hojaSale 0.35s ease-in forwards;
+}
+
+/* Hoja nueva que aparece */
+
+.hoja-entra {
+    animation: hojaEntra 0.35s ease-out forwards;
+}
+
+@keyframes hojaSale {
+    from {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: rotateY(-75deg);
+        opacity: 0.3;
+    }
+}
+
+@keyframes hojaEntra {
+    from {
+        transform: rotateY(75deg);
+        opacity: 0.3;
+    }
+
+    to {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+/* Animacion de la contraportada */
+
+.pagina-final:not([hidden]) {
+    animation: aparecerFinal 0.7s ease;
+}
+
+@keyframes aparecerFinal {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hoja-sale,
+    .hoja-entra,
+    .pagina-final:not([hidden]) {
+        animation: none;
+    }
+}
+
+/* ======================================
+   BABYKIDS STUDIO
+   HOJAS DE LIBRO CON EFECTO 3D
+====================================== */
+
+/* Profundidad del libro */
+
+.album {
+    perspective: 2000px;
+}
+
+/* Aspecto de hojas apiladas */
+
+.pagina-foto {
+    border-radius: 4px 18px 18px 4px;
+
+    box-shadow:
+        -4px 3px 0 #dac8a7,
+        -8px 6px 0 #f0e4cf,
+        -12px 9px 0 #c9b693,
+        0 25px 50px rgba(0,0,0,0.35);
+}
+
+/* Sombra junto al lomo */
+
+.pagina-foto::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 24px;
+
+    background: linear-gradient(
+        to right,
+        rgba(70,40,20,0.20),
+        rgba(70,40,20,0)
+    );
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Hoja que gira */
+
+.hoja-flip {
+    position: fixed;
+    z-index: 9999;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    pointer-events: none;
+}
+
+/* Las dos caras de la hoja */
+
+.hoja-flip__anverso,
+.hoja-flip__reverso {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.hoja-flip__anverso {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    max-width: none;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Parte posterior de papel */
+
+.hoja-flip__reverso {
+    transform: rotateY(180deg);
+
+    background: linear-gradient(
+        110deg,
+        #e1d1b6 0%,
+        #fffaf0 25%,
+        #f8efdf 75%,
+        #c9b38e 100%
+    );
+
+    border: 5px solid #d7b978;
+    border-radius: 18px 4px 4px 18px;
+
+    box-shadow:
+        inset 15px 0 28px rgba(70,40,20,0.15);
+}
+
+/* Pasar hacia adelante */
+
+.hoja-flip.avanza {
+    animation: girarAdelante 1s
+        cubic-bezier(.35,.05,.25,1) forwards;
+}
+
+@keyframes girarAdelante {
+    0% {
+        transform: perspective(1900px) rotateY(0deg);
+    }
+
+    50% {
+        transform: perspective(1900px) rotateY(-90deg);
+    }
+
+    100% {
+        transform: perspective(1900px) rotateY(-178deg);
+    }
+}
+
+/* Pasar hacia atras */
+
+.hoja-flip.retrocede {
+    transform-origin: right center;
+
+    animation: girarAtras 1s
+        cubic-bezier(.35,.05,.25,1) forwards;
+}
+
+@keyframes girarAtras {
+    0% {
+        transform: perspective(1900px) rotateY(0deg);
+    }
+
+    50% {
+        transform: perspective(1900px) rotateY(90deg);
+    }
+
+    100% {
+        transform: perspective(1900px) rotateY(178deg);
+    }
+}
+
+/* Boton para controlar el sonido */
+
+.boton-sonido {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 10000;
+
+    background: #751f35;
+    color: #ffffff;
+    border: 1px solid #d7b978;
+
+    padding: 12px 18px;
+    border-radius: 30px;
+
+    font-size: 14px;
+    cursor: pointer;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+}
+
+/* Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+    .hoja-flip.avanza,
+    .hoja-flip.retrocede {
+        animation: none;
+    }
+}
