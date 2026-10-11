@@ -309,3 +309,10 @@
   #book .page.cover .page-inner > p { font-size: 13px !important; }
   .controls { row-gap: 3px !important; }
 }
+@media (max-width: 680px) {
+  body::before {
+    background-position: center top;
+    filter: blur(8px) brightness(0.72);
+    transform: scale(1.05);
+  }
+}
