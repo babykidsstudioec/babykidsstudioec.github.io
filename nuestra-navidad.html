@@ -15,6 +15,8 @@
 <meta property="og:description" content="Nuestros mejores recuerdos de Navidad en familia.">
 <meta property="og:url" content="https://babykidsstudioec.github.io/nuestra-navidad.html">
 
+<meta property="og:image" content="https://babykidsstudioec.github.io/assets/img/portada.webp">
+
   <style>
     :root { color-scheme: dark; --vino:#431923; --oro:#e6c68c; --crema:#fff9f0; --tinta:#603040; }
     * {box-sizing:border-box}
@@ -53,9 +55,14 @@ body::after {
     radial-gradient(circle at center, rgba(95, 25, 45, 0.10), rgba(20, 8, 12, 0.45));
   z-index: -1;
 }
-    .shell {max-width:1150px;margin:0 auto;padding:18px 18px 26px}
+    
+.shell {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 18px 18px 26px;
     position: relative;
-z-index: 1;
+    z-index: 1;
+}
     .heading {text-align:center;margin-bottom:12px}
     .eyebrow {margin:0 0 6px;color:var(--oro);font:600 11px/1.5 Arial,sans-serif;letter-spacing:.38em;text-transform:uppercase}
     h1 {font-weight:normal;font-size:clamp(26px,3vw,38px);line-height:1.2;margin:0;color:#ffe3ae}
@@ -296,7 +303,14 @@ vivirán siempre en nuestro corazón..</p>
       // Permitir que el libro se adapte a la altura visible en celulares verticales.
       const album = new St.PageFlip(document.getElementById('book'), {
         width: 440, height: 600,
-        size: 'stretch', minWidth: 245, maxWidth: 510, minHeight: 335, maxHeight: 700,
+        
+size: 'stretch',
+minWidth: 245,
+
+maxWidth: window.matchMedia("(max-width: 680px) and (orientation: portrait)").matches ? 385 : 510,
+minHeight: 335,
+maxHeight: 700,
+
         showCover: true, usePortrait: true, drawShadow: true,
         
 maxShadowOpacity: 0.7,
