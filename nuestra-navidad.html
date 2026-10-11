@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="es">
 <head>
+  
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#34161f">
@@ -76,6 +79,12 @@
       
 <!-- Fondo navideño BabyKids -->
 <link rel="stylesheet" href="assets/css/extra-navidad.css">
+
+<!-- Ajustes exclusivos para celulares -->
+<link rel="stylesheet" href="assets/css/mobile-fix.css">
+
+<!-- Tipografias elegantes BabyKids Studio -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 
 <!-- Música instrumental navideña -->
 <script src="assets/js/musica-navidad.js" defer></script>
@@ -242,6 +251,7 @@ vivirán siempre en nuestro corazón..</p>
         } catch (error) { console.warn('El sonido no está disponible', error); }
       }
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      // Permitir que el libro se adapte a la altura visible en celulares verticales.
       const album = new St.PageFlip(document.getElementById('book'), {
         width: 440, height: 600,
         size: 'stretch', minWidth: 245, maxWidth: 510, minHeight: 335, maxHeight: 700,
@@ -249,12 +259,13 @@ vivirán siempre en nuestro corazón..</p>
         
 maxShadowOpacity: 0.7,
 
-flippingTime: reducedMotion ? 180 : (window.matchMedia("(max-width: 680px)").matches ? 3000 : 2000),
 
+flippingTime: window.matchMedia("(max-width: 680px), (pointer: coarse)").matches ? 2250 : 2000,
 
         autoSize: true, mobileScrollSupport: true
       });
       album.loadFromHTML(document.querySelectorAll('#book > .page'));
+      
       const pagesCount = album.getPageCount();
       function refreshControls() {
         const index = album.getCurrentPageIndex();
@@ -290,5 +301,6 @@ flippingTime: reducedMotion ? 180 : (window.matchMedia("(max-width: 680px)").mat
   <script src="assets/js/navidad-efectos.js"></script>
   <script src="assets/js/nieve-interior.js"></script>
   <script src="assets/js/efectos-interior.js"></script>
+  
 </body>
 </html>

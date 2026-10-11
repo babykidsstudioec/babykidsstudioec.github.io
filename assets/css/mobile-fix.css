@@ -1,0 +1,311 @@
+/* ============================================================
+   BABYKIDS STUDIO - DISEÑO MOVIL UNIFICADO
+   Reemplazar COMPLETAMENTE assets/css/mobile-fix.css
+   No modificar la velocidad, los efectos ni la musica.
+   ============================================================ */
+
+/* El botón de sonido permanece oculto, el de música sigue activo. */
+#sound { display: none !important; }
+
+/* Letras elegantes, sin sustituir otras decoraciones del libro. */
+.heading h1,
+#book .page h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 600 !important;
+}
+#book .page.cover h2 { font-weight: 700 !important; }
+.heading .subhead,
+#book .page .line,
+#book .page.cover .page-inner > p {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+}
+#book .page .line,
+#book .page.cover .page-inner > p { font-style: italic; }
+.heading .eyebrow,
+#book .page .brand,
+.controls button,
+#counter {
+  font-family: 'Montserrat', Arial, sans-serif !important;
+}
+
+@media (max-width: 680px) {
+  html, body { max-width: 100%; overflow-x: hidden; }
+  .shell { width: 100%; padding: 6px 8px 8px !important; }
+
+  /* Encabezado discreto: deja más espacio para las fotos. */
+  .heading {
+    position: relative;
+    z-index: 5;
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 0 3px !important;
+  }
+  .heading .eyebrow {
+    font-size: 10px !important;
+    line-height: 1.15 !important;
+    letter-spacing: .20em !important;
+    margin: 0 0 2px !important;
+  }
+  .heading h1 {
+    font-size: clamp(23px, 7.2vw, 29px) !important;
+    line-height: 1.04 !important;
+    margin: 0 !important;
+  }
+  .heading .subhead {
+    font-size: clamp(12px, 3.7vw, 15px) !important;
+    line-height: 1.1 !important;
+    margin: 2px 0 0 !important;
+  }
+
+  /* El motor StPageFlip puede redimensionar la página dentro del escenario. */
+  .stage {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 4px auto 9px !important;
+    padding: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  #book { width: 100%; height: 100%; margin: auto; }
+
+  /* Contenido de una hoja normal. */
+  #book .page .page-inner {
+    padding: clamp(7px, 1.3vh, 11px) !important;
+    gap: clamp(4px, .8vh, 7px) !important;
+  }
+  #book .page .brand {
+    font-size: clamp(8px, 2.25vw, 10px) !important;
+    line-height: 1.2 !important;
+    letter-spacing: .14em !important;
+  }
+  #book .page h2 {
+    font-size: clamp(24px, 6.9vw, 30px) !important;
+    line-height: 1.07 !important;
+    text-align: center;
+  }
+  #book .page .line {
+    font-size: clamp(13px, 3.9vw, 16px) !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+  }
+  #book .page .folio { font-size: 9px !important; }
+
+  /* Las fotografías no deben tapar titulares ni el folio. */
+  #book .page:not(.cover):not(.back-cover):not(.dedication) .photo-frame {
+    flex: 0 1 auto !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    max-height: 63% !important;
+    padding: 4px !important;
+  }
+  #book .page:not(.cover):not(.back-cover):not(.dedication) .photo-frame img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  
+/* ==========================================
+   BABYKIDS STUDIO
+   PORTADA ELEGANTE EN CELULAR
+========================================== */
+
+/* Distribucion de la portada */
+
+#book .page.cover .page-inner {
+    padding: 12px !important;
+    gap: 7px !important;
+    justify-content: center !important;
+}
+
+/* Nombre BabyKids Studio */
+
+#book .page.cover .brand {
+    font-size: 12px !important;
+    letter-spacing: 0.16em !important;
+    line-height: 1.2 !important;
+}
+
+/* Titulo principal: Nuestra Navidad */
+
+#book .page.cover h2 {
+    font-family: 'Cormorant Garamond',
+                 Georgia, serif !important;
+
+    font-size: clamp(34px, 10.5vw, 42px) !important;
+    font-weight: 700 !important;
+
+    line-height: 1.05 !important;
+    letter-spacing: 0 !important;
+
+    white-space: nowrap !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+/* Frase debajo del titulo */
+
+#book .page.cover .page-inner > p {
+    font-family: 'Cormorant Garamond',
+                 Georgia, serif !important;
+
+    font-size: clamp(16px, 4.8vw, 19px) !important;
+    font-style: italic !important;
+
+    line-height: 1.2 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+}
+
+/* Marco de la fotografia */
+
+#book .page.cover .photo-frame {
+    display: block !important;
+
+    flex: 0 0 auto !important;
+
+    width: 94% !important;
+    height: auto !important;
+
+    min-height: 0 !important;
+    max-height: none !important;
+
+    padding: 4px !important;
+    margin: 0 auto !important;
+}
+
+/* Fotografia completa y bien encajada */
+
+#book .page.cover .photo-frame img {
+    display: block !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    max-width: 100% !important;
+    max-height: none !important;
+
+    object-fit: contain !important;
+}
+
+/* Estrellas decorativas */
+
+#book .page.cover .ornament {
+    font-size: 16px !important;
+    line-height: 1 !important;
+}
+
+
+  /* Dedicatoria y contraportada: no dejar que sus frases salgan de la hoja. */
+  #book .page.dedication .quote {
+    font-size: clamp(14px, 3.9vw, 17px) !important;
+    line-height: 1.35 !important;
+    max-width: 27ch;
+    margin: 0 !important;
+  }
+  #book .page.back-cover h2 {
+    font-size: clamp(24px, 6.5vw, 29px) !important;
+    line-height: 1.1 !important;
+  }
+  #book .page.back-cover p {
+    font-size: clamp(13px, 3.5vw, 15px) !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Controles de tamaño original, separados del borde inferior del libro. */
+  .controls {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    justify-items: center !important;
+    align-items: center !important;
+    column-gap: 8px !important;
+    row-gap: 5px !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    margin: 2px auto 0 !important;
+    padding: 0 !important;
+  }
+  #counter {
+    grid-column: 1 / 3 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+    font-size: 13px !important;
+    text-align: center !important;
+  }
+  .controls button {
+    min-width: 0 !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+    padding: 6px 8px !important;
+    margin: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+    letter-spacing: 0 !important;
+  }
+  #prev, #next {
+    width: 96% !important;
+    max-width: 185px !important;
+    justify-self: center !important;
+  }
+  #prev { grid-column: 1 !important; grid-row: 2 !important; }
+  #next { grid-column: 2 !important; grid-row: 2 !important; }
+  #music,
+  .controls > button:not(#prev):not(#next):not(#sound) {
+    grid-column: 1 / 3 !important;
+    grid-row: 3 !important;
+    justify-self: center !important;
+    width: 146px !important;
+    max-width: 146px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+    padding: 5px 8px !important;
+    font-size: 12px !important;
+    margin: 0 auto !important;
+  }
+  .hint { display: none !important; }
+}
+
+/* Mantener todo visible en la parte util del navegador del celular. */
+@media (max-width: 680px) and (orientation: portrait) {
+  html { height: 100%; overflow-y: hidden !important; }
+  body { height: 100dvh !important; min-height: 0 !important; overflow-y: hidden !important; }
+  .shell {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100dvh !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    padding: 5px 8px calc(6px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .heading { flex: 0 0 auto !important; }
+  .stage {
+    flex: 1 1 0% !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+  .controls { flex: 0 0 auto !important; }
+  .warning.visible { flex: 0 0 auto; }
+}
+
+/* En pantallas de baja altura, reducir tipografía de la portada antes que cortar el libro. */
+@media (max-width: 680px) and (orientation: portrait) and (max-height: 570px) {
+  .heading h1 { font-size: 23px !important; }
+  .heading .subhead { font-size: 12px !important; }
+  #book .page .page-inner { padding: 6px !important; gap: 4px !important; }
+  #book .page h2 { font-size: 23px !important; }
+  #book .page.cover h2 { font-size: 26px !important; }
+  #book .page .line,
+  #book .page.cover .page-inner > p { font-size: 13px !important; }
+  .controls { row-gap: 3px !important; }
+}

@@ -1537,3 +1537,218 @@ body {
         margin: 0;
     }
 }
+
+/* ======================================
+   BABYKIDS - NIEVE VISIBLE EN CELULARES
+====================================== */
+
+/* La nieve cubre toda la pagina */
+
+#book .page:not(.cover):not(.back-cover)
+.page-inner > .nieve-interior,
+#book .page:not(.cover):not(.back-cover)
+.page-inner > .snow-inside {
+    position: absolute !important;
+    inset: 0;
+    z-index: 4 !important;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Copos mas visibles sobre el fondo claro */
+
+.nieve-interior .copo,
+.snow-inside .flake-inside {
+    position: absolute;
+    display: block;
+    top: -10%;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        #ffffff 25%,
+        #d3e4ef 70%,
+        transparent 100%
+    );
+
+    box-shadow:
+        0 0 4px rgba(75, 105, 130, 0.35);
+
+    animation-name: nieveBabyKidsCae !important;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Ahora los copos recorren toda la hoja */
+
+@keyframes nieveBabyKidsCae {
+
+    0% {
+        top: -10%;
+        transform: translateX(0);
+    }
+
+    100% {
+        top: 110%;
+        transform: translateX(
+            var(--drift, 15px)
+        );
+    }
+}
+
+/* Respetar configuracion de accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+    .nieve-interior .copo,
+    .snow-inside .flake-inside {
+        animation: none !important;
+    }
+}
+
+/* =====================================
+   BABYKIDS STUDIO
+   NIEVE ANIMADA EN TODOS LOS DISPOSITIVOS
+===================================== */
+
+/* La nieve cubre el interior de cada hoja */
+
+#book .page .page-inner > .nieve-interior,
+#book .page .page-inner > .snow-inside {
+    position: absolute !important;
+    inset: 0;
+    z-index: 5 !important;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Copos visibles sobre el fondo navideño */
+
+#book .page .nieve-interior .copo,
+#book .page .snow-inside .flake-inside {
+    position: absolute;
+    top: -12%;
+
+    background: radial-gradient(
+        circle,
+        #ffffff 20%,
+        #c4dce9 65%,
+        transparent 100%
+    );
+
+    box-shadow: 0 0 5px rgba(65, 95, 125, 0.35);
+
+    animation: nieveBabyKids 9s linear infinite !important;
+}
+
+/* Diferentes tiempos para una nieve natural */
+
+#book .copo:nth-child(4n+1),
+#book .flake-inside:nth-child(4n+1) {
+    animation-delay: -2s !important;
+}
+
+#book .copo:nth-child(4n+2),
+#book .flake-inside:nth-child(4n+2) {
+    animation-delay: -5s !important;
+}
+
+#book .copo:nth-child(4n+3),
+#book .flake-inside:nth-child(4n+3) {
+    animation-delay: -7s !important;
+}
+
+/* Caída a lo largo de toda la página */
+
+@keyframes nieveBabyKids {
+    from {
+        top: -12%;
+        transform: translateX(0);
+    }
+
+    to {
+        top: 112%;
+        transform: translateX(var(--drift, 15px));
+    }
+}
+
+/* =====================================
+   BABYKIDS - NIEVE NATURAL
+===================================== */
+
+/* Cada copo tiene su propio tiempo
+   y comienza a una altura diferente */
+
+#book .page .nieve-interior .copo {
+    animation:
+        nieveBabyKids
+        var(--bk-duration, 12s)
+        linear
+        var(--bk-delay, -3s)
+        infinite !important;
+}
+
+/* Caida completa por toda la hoja */
+
+@keyframes nieveBabyKids {
+    from {
+        top: -12%;
+        transform: translateX(0);
+    }
+
+    to {
+        top: 112%;
+        transform: translateX(
+            var(--drift, 15px)
+        );
+    }
+}
+
+/* =========================================
+   BABYKIDS STUDIO
+   TIPOGRAFIA PREMIUM
+========================================= */
+
+/* Textos generales */
+body,
+.shell,
+#book .page,
+.controls,
+.controls button,
+#counter {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Titulos elegantes */
+.heading h1,
+#book .page h1,
+#book .page h2,
+#book .page .cover-title {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 600;
+}
+
+/* Frases romanticas de las fotografias */
+#book .page .line {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Nombre del estudio */
+.heading .eyebrow {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+}
+
+/* Subtitulo principal */
+.heading .subhead {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 400;
+}
+
+/* Botones mas refinados */
+.controls button {
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}

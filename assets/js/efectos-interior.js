@@ -30,25 +30,33 @@ document.addEventListener("DOMContentLoaded", () => {
             nieve.className = "nieve-interior";
             pagina.prepend(nieve);
 
-            if (!reducirMovimiento) {
-                const cantidad = 18;
+            
+if (true) {
+
+                const cantidad = 36;
 
                 for (let i = 0; i < cantidad; i++) {
                     const copo = document.createElement("span");
                     copo.className = "copo";
 
-                    const size = 4 + Math.random() * 7;
+                    
+const size = window.matchMedia("(max-width: 680px)").matches
+    ? 4 + Math.random() * 5
+    : 2 + Math.random() * 5;
+
                     const left = Math.random() * 100;
                     const duration = 7 + Math.random() * 6;
-                    const delay = Math.random() * -8;
+                    
+const delay = -Math.random() * duration;
+
                     const drift = -15 + Math.random() * 30;
                     const opacity = 0.25 + Math.random() * 0.45;
 
                     copo.style.left = `${left}%`;
                     copo.style.width = `${size}px`;
                     copo.style.height = `${size}px`;
-                    copo.style.animationDuration = `${duration}s`;
-                    copo.style.animationDelay = `${delay}s`;
+                    copo.style.setProperty("--bk-duration", `${duration}s`);
+                    copo.style.setProperty("--bk-delay", `${delay}s`);
                     copo.style.opacity = opacity.toFixed(2);
                     copo.style.setProperty("--drift", `${drift}px`);
 
